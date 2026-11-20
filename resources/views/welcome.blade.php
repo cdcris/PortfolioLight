@@ -118,14 +118,12 @@
                 <h2 id="education-title" class="section-title handwriting">Education</h2>
                 <ol>
                     @foreach (config('portfolio.education') as $entry)
-                        <li class="experience-row">
-                            <strong>{{ $entry['years'] }}</strong>
-                            <div>
+                        <li class="experience-row grid-cols-[minmax(0,1fr)_auto]">
+                            <strong class="self-center">{{ $entry['years'] }}</strong>
+                            <img src="{{ asset('images/portfolio/'.$entry['logo']) }}" alt="" width="64" height="64" loading="lazy" class="size-14 object-contain drop-shadow-md sm:size-16">
+                            <div class="col-span-2">
                                 <h3>{{ $entry['title'] }}</h3>
-                                <div class="mt-2 flex items-center gap-3">
-                                    <img src="{{ asset('images/portfolio/'.$entry['logo']) }}" alt="" width="40" height="40" loading="lazy" class="size-10 shrink-0 object-contain">
-                                    <strong>{{ $entry['school'] }}</strong>
-                                </div>
+                                <strong class="mt-2 block">{{ $entry['school'] }}</strong>
                                 <h4 class="mt-4 font-semibold">{{ $entry['heading'] }}</h4>
                                 <ul class="mt-1 list-disc space-y-1 pl-5">
                                     @foreach ($entry['items'] as $item)

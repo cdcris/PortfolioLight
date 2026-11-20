@@ -180,11 +180,48 @@ body { color: var(--ink); background: white; font-family: var(--font-sans); -web
 .case-figure { width: min(960px, calc(100% - 2 * var(--gutter))); margin: 34px auto 40px; }
 .case-art { overflow: hidden; border-radius: 24px; }
 .case-figure figcaption { padding: 12px .5rem 0; color: var(--muted); text-align: center; font-size: .9375rem; line-height: 1.45; }
-.experience { scroll-margin-top: 90px; }
-.experience-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1.5rem; border-bottom: 1px solid #e2e2e2; padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; }
+.experience { width: min(800px, calc(100% - 2 * var(--gutter))); scroll-margin-top: 90px; }
+.experience > ol { --card-gap: 1.25rem; display: grid; gap: var(--card-gap); }
+.experience-row {
+    --card-padding: clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    gap: 1rem;
+    padding: var(--card-padding);
+    border: 1px solid #e2e2e2;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 4px 16px #00000009;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
 .experience-row h3 { font-size: 1.35rem; font-weight: 600; }
 .experience-row strong { color: var(--muted); font-size: 1rem; font-weight: 600; }
+.experience-row > strong { justify-self: start; padding: .25rem .75rem; border-radius: 99rem; background: #f4f4f4; color: #525252; font-size: .875rem; }
 .experience-row p { margin-top: .5rem; }
+#experience .experience-row { position: relative; }
+#experience .experience-row::before,
+#experience .experience-row:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: calc(-1 * clamp(12px, 3vw, 28px));
+    top: calc(var(--card-padding) + .9rem);
+    translate: -50% 0;
+}
+#experience .experience-row::before {
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: white;
+}
+#experience .experience-row:first-child::before { background: var(--ink); }
+#experience .experience-row:not(:last-child)::after {
+    width: 2px;
+    height: calc(100% + var(--card-gap) + 2px);
+    background: #d4d4d4;
+}
 .page-footer { padding: 132px var(--gutter) 56px; }
 .page-footer .contact-links { margin: 32px auto 96px; justify-content: center; }
 .page-footer small { color: var(--muted); font-size: .9375rem; }
@@ -210,7 +247,6 @@ body { color: var(--ink); background: white; font-family: var(--font-sans); -web
     .intro-note { right: calc(100% + 16px); }
     .intro-note svg { width: 80px; left: 72%; top: 83%; }
     .case-study + .case-study, .experience { margin-top: 94px; }
-    .experience-row { grid-template-columns: 1fr; gap: .25rem; }
     .case-figure { width: calc(100% - 2 * var(--gutter)); }
     .case-art { border-radius: 16px; }
     .brand-lockup { font-size: 2.05rem; }
