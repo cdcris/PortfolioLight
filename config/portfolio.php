@@ -79,4 +79,29 @@ return [
             'description' => 'Maintained, repaired, and upgraded hardware, software, and networks for TESDA-accredited schools and computer shops.',
         ],
     ],
+
+    'education' => [
+        [
+            'years' => '2018 — 2022',
+            'title' => 'BS in Information Technology',
+            'school' => 'Tarlac Agricultural University',
+            'logo' => 'logo_tau.png',
+            'heading' => 'Awards',
+            'items' => [
+                'Cum Laude',
+                'Intelligent Class Scheduling System for Tarlac Agricultural University, Copyright Registration No. 2022-1084, Issued by the National Library of the Philippines 2022.',
+            ],
+        ],
+        [
+            'years' => '2018',
+            'title' => 'Technical Education and Skills Development Authority (TESDA)',
+            'school' => 'United School of Science and Technology',
+            'logo' => 'logo_tesda.webp',
+            'heading' => 'National certificates',
+            'items' => [
+                'Computer System Servicing NCII',
+                'Visual Graphic Design NC III',
+            ],
+        ],
+    ],
 ];

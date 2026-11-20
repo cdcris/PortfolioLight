@@ -113,6 +113,30 @@
                     @endforeach
                 </ol>
             </section>
+
+            <section id="education" class="experience reading-column" aria-labelledby="education-title">
+                <h2 id="education-title" class="section-title handwriting">Education</h2>
+                <ol>
+                    @foreach (config('portfolio.education') as $entry)
+                        <li class="experience-row">
+                            <strong>{{ $entry['years'] }}</strong>
+                            <div>
+                                <h3>{{ $entry['title'] }}</h3>
+                                <div class="mt-2 flex items-center gap-3">
+                                    <img src="{{ asset('images/portfolio/'.$entry['logo']) }}" alt="" width="40" height="40" loading="lazy" class="size-10 shrink-0 object-contain">
+                                    <strong>{{ $entry['school'] }}</strong>
+                                </div>
+                                <h4 class="mt-4 font-semibold">{{ $entry['heading'] }}</h4>
+                                <ul class="mt-1 list-disc space-y-1 pl-5">
+                                    @foreach ($entry['items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                    @endforeach
+                </ol>
+            </section>
         </main>
         <footer class="page-footer text-center">
             <p class="handwriting">Want to chat? Say hi!</p>
