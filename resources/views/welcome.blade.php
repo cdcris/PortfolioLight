@@ -18,10 +18,15 @@
                         <header class="identity">
                             <h1 id="profile-name">{{ config('portfolio.name') }}</h1>
                             <p>{{ config('portfolio.role') }}</p>
+                            <div class="mt-3 flex flex-nowrap items-center justify-center gap-x-4 md:justify-start">
+                                <img src="{{ asset('images/portfolio/logo_python.png') }}" alt="Python" class="block h-10 w-auto object-contain">
+                                <img src="{{ asset('images/portfolio/logo_rust.png') }}" alt="Rust" class="block h-10 w-auto object-contain">
+                                <img src="{{ asset('images/portfolio/langchain.png') }}" alt="LangChain" class="block h-10 w-auto object-contain">
+                            </div>
                         </header>
                         <div class="bio-copy">
-                            <p>Hello there! I’m {{ config('portfolio.name') }}. I work as {{ config('portfolio.role') }} at <a class="inline-link studio-link" href="#experience"><span class="studio-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Fieldwork</a> in Taipei. I grew up taking computers apart and fell in love with making software.</p>
-                            <p>These days I design tools that help people find answers, spot changes, and get a little time back. My recent projects include <a class="inline-link" href="#rag-chatbot">RAG Chatbot</a>, <a class="inline-link" href="#competitors-analysis">Competitors Analysis</a>, <a class="inline-link" href="#digital-defense">Digital Defense</a>, and <a class="inline-link" href="#ai-automation">AI Automation</a>.</p>
+                            <p>Hello there! My name is {{ config('portfolio.name') }} and I'm an {{ config('portfolio.role') }} who builds the systems that let you do less and get more done.</p>
+                            <p>In my 4 years of experience, I have built and deployed AI-powered applications, integrated them into existing systems and tools, automated manual workflows end to end, and worked with teams across startups, research, and institutions.</p>
                         </div>
                         @include('portfolio.contact-links', ['label' => 'Portfolio links'])
                     </div>
