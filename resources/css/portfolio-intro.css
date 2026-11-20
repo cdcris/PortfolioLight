@@ -1,0 +1,110 @@
+.intro-reel {
+    width: min(48rem, calc(100vw - 2rem), calc((100dvh - 8rem) * 1.78));
+    max-width: none;
+    max-height: calc(100dvh - 1rem);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    color: white;
+    background: #151515;
+    box-shadow: 0 24px 80px #0005;
+}
+
+.intro-reel::backdrop {
+    background: #101010a6;
+    backdrop-filter: blur(5px);
+}
+
+.intro-reel__dismiss {
+    position: absolute;
+    z-index: 2;
+    top: .75rem;
+    right: .75rem;
+    margin: 0;
+}
+
+.intro-reel__button {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    flex: none;
+    border: 0;
+    border-radius: 50%;
+    background: #222c;
+    color: white;
+    cursor: pointer;
+}
+
+.intro-reel__button:hover { background: #4a4a4a; }
+.intro-reel__button:focus-visible, .intro-reel__seek:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.intro-reel__button svg { width: 1.1rem; height: 1.1rem; }
+.intro-reel__button [data-icon] { display: none; }
+.intro-reel[data-state="playing"] [data-icon="pause"],
+.intro-reel[data-state="paused"] [data-icon="play"],
+.intro-reel[data-state="ended"] [data-icon="replay"] { display: block; }
+
+.intro-reel__screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.intro-reel__scene {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease, visibility 0s .3s;
+}
+
+.intro-reel__scene[data-active] {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.intro-reel__scene > * { width: 100%; }
+
+.intro-reel__photo {
+    height: 100%;
+    object-fit: cover;
+    transform: scale(var(--reel-scale, 1));
+}
+
+.intro-reel__portrait { object-position: 50% 38%; }
+
+.intro-reel__caption {
+    min-height: 2.7em;
+    max-width: 42ch;
+    margin: 1.15rem auto .25rem;
+    padding-inline: 1rem;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.intro-reel__controls {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    padding: .25rem 1.25rem .8rem .8rem;
+}
+
+.intro-reel__seek { flex: 1; min-width: 0; height: 1.75rem; accent-color: white; cursor: pointer; }
+.intro-reel__time { font-size: .8125rem; font-variant-numeric: tabular-nums; color: #e1e1e1; white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-reel__scene { transition: none; }
+    .intro-reel__photo { transform: none; }
+}
